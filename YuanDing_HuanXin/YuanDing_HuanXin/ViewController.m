@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "HuanXinManager.h"
+#import "YTTeacherMessageController.h"
 
 @interface ViewController ()
 
@@ -16,7 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //登录幼信通
+    
+    [[HuanXinManager shareManager] hx_Login:^{
+        
+        YTTeacherMessageController * teachVC = [[YTTeacherMessageController alloc] initWithStyle:UITableViewStyleGrouped];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:teachVC];
+        
+        [self presentViewController:nav animated:YES completion:nil];
+    }];
+    
+    
+    
 }
 
 

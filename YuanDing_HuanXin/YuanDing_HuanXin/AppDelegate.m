@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HuanXinManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSLog(@"%@",NSHomeDirectory());
+    //注册环信APPKey
+    [[HuanXinManager shareManager] hx_addAPPKey];
+    
+    
+    
     return YES;
 }
 
